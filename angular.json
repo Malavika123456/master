@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ShopBridge"
+    }
+  },
+  "defaultProject": "ShopBridge",
+  "cli": {
+    "analytics": "43af07a7-b15c-41d8-9748-14c0acc5571c"
+  }
 }

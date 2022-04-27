@@ -1,0 +1,27 @@
+<div class="form-froup row">
+
+    <label class="col-sm-2 col-form-label">Item Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="ItemName"
+        placeholder="Enter Item Name">
+    </div>
+
+    <label class="col-sm-2 col-form-label">Quantity</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="Quantity"
+        placeholder="Enter the quantity">
+    </div>
+    <label class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="Descp"
+        placeholder="Enter the Description">
+    </div>
+
+    <button (click)="addItem()" *ngIf="itm.ItemId==0" class="btn btn-primary">
+        Add Item
+    </button>
+    
+    <button (click)="updateItem()" *ngIf="itm.ItemId!=0" class="btn btn-primary">
+        Update Item
+    </button>
+</div>
