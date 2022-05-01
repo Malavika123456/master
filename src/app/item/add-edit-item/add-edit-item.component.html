@@ -1,17 +1,30 @@
-<div class="form-froup row">
+ <!-- <div class="form-froup row">  -->
+    <form [formGroup]="requiredForm" novalidate>
+        <div class="form-group">
 
-    <label class="col-sm-2 col-form-label">Item Name</label>
-    <div class="col-sm-10">
-        <input type="text" class="form-control" [(ngModel)]="ItemName"
+    <label class="center-block">Item Name
+        <input class="form-control" formControlName="name">
+
+    </label>
+        </div>
+  
+    <!-- <div 
+        <input type="text" class="center-block" [(ngModel)]="ItemName"
         placeholder="Enter Item Name">
+    </div> -->
+    <div *ngIf="requiredForm.controls['name'].invalid && requiredForm.controls['name'].touched" class="alert alert-danger">
+        <div *ngIf="requiredForm.controls['name'].errors.required">
+        Name is required.
+      </div>
     </div>
-
-    <label class="col-sm-2 col-form-label">Quantity</label>
+</form>
+   
+    <label class="col-form-label " >Quantity</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" [(ngModel)]="Quantity"
         placeholder="Enter the quantity">
     </div>
-    <label class="col-sm-2 col-form-label">Description</label>
+    <label class="col-form-label">Description</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" [(ngModel)]="Descp"
         placeholder="Enter the Description">
@@ -20,8 +33,8 @@
     <button (click)="addItem()" *ngIf="itm.ItemId==0" class="btn btn-primary">
         Add Item
     </button>
-    
+
     <button (click)="updateItem()" *ngIf="itm.ItemId!=0" class="btn btn-primary">
         Update Item
     </button>
-</div>
+<!-- </div> -->

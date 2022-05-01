@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {SharedService} from 'src/app/shared.service';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-add-edit-item',
@@ -7,8 +8,15 @@ import {SharedService} from 'src/app/shared.service';
   styleUrls: ['./add-edit-item.component.css']
 })
 export class AddEditItemComponent implements OnInit {
-
-  constructor(private service:SharedService) { }
+  requiredForm: FormGroup;
+  contactForm: FormGroup;
+  constructor(private service:SharedService,private fb: FormBuilder) 
+  {this.myForm(); }
+  myForm() {
+    this.requiredForm = this.fb.group({
+    name: ['', Validators.required ],
+   // Quantity: ['', Validators.required ]
+    });}
   @Input() itm:any;
   ItemId:string;
   ItemName:string;
